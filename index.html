@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnahiBot - Sistema de Gestión e Inventario | Carpintería & Mueblería Anahí</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=2.0">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="fa-solid fa-chair"></i>
+        </div>
+        <div class="brand-text">
+          <h2>Mueblería Anahí</h2>
+          <span>AnahiBot v1.0 • Sistema Integral</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <div class="nav-section-title">Navegación General</div>
+        
+        <a href="#dashboard" class="nav-item active" data-view="dashboard">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Dashboard General</span>
+        </a>
+
+        <div class="nav-section-title">Abastecimiento e Inventario</div>
+        <a href="#productos" class="nav-item" data-view="productos">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <span>Productos e Inventario</span>
+        </a>
+        <a href="#medidas" class="nav-item" data-view="medidas">
+          <i class="fa-solid fa-ruler-combined"></i>
+          <span>Registro de Medidas</span>
+        </a>
+        <a href="#proveedores" class="nav-item" data-view="proveedores">
+          <i class="fa-solid fa-truck-field"></i>
+          <span>Proveedores</span>
+        </a>
+        <a href="#compras" class="nav-item" data-view="compras">
+          <i class="fa-solid fa-cart-flatbed"></i>
+          <span>Registro de Compras</span>
+        </a>
+
+        <div class="nav-section-title">Ventas y Asistente Bot</div>
+        <a href="#clientes" class="nav-item" data-view="clientes">
+          <i class="fa-solid fa-users"></i>
+          <span>Clientes</span>
+        </a>
+        <a href="#ventas" class="nav-item" data-view="ventas">
+          <i class="fa-solid fa-cash-register"></i>
+          <span>Registro de Ventas</span>
+        </a>
+        <a href="#chatbot-view" class="nav-item" data-view="chatbot-view">
+          <i class="fa-solid fa-robot"></i>
+          <span>Chatbot AnahiBot</span>
+          <span class="badge badge-accent">IA</span>
+        </a>
+
+        <div class="nav-section-title">Finanzas y Reportes</div>
+        <a href="#finanzas" class="nav-item" data-view="finanzas">
+          <i class="fa-solid fa-wallet"></i>
+          <span>Ingresos y Gastos</span>
+        </a>
+        <a href="#pedidos" class="nav-item" data-view="pedidos">
+          <i class="fa-solid fa-hammer"></i>
+          <span>Pedidos a la Medida</span>
+        </a>
+        <a href="#reportes" class="nav-item" data-view="reportes">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+          <span>Generación de Reportes</span>
+        </a>
+      </nav>
+
+
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Abrir Menú">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="header-title">
+            <h1 id="page-title">Dashboard de Gestión Inteligente</h1>
+            <p id="page-subtitle">Vista unificada de inventario, operaciones comerciales y finanzas</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <!-- Notification Bell -->
+          <div style="position: relative;">
+            <button class="header-notif-btn" id="notif-btn" title="Centro de Notificaciones y Alertas">
+              <i class="fa-regular fa-bell"></i>
+              <span class="header-notif-badge" id="notif-badge">0</span>
+            </button>
+            <div class="notif-dropdown" id="notif-dropdown">
+              <div class="notif-header">
+                <h4><i class="fa-solid fa-bell-concierge"></i> Centro de Alertas</h4>
+                <span class="badge badge-accent" id="notif-count-badge">0 Alertas</span>
+              </div>
+              <div class="notif-list" id="notif-list">
+                <!-- Notifications injected dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-outline" id="btn-quick-reset" title="Restablecer datos demo a estado original">
+            <i class="fa-solid fa-rotate-left"></i> Datos Demo
+          </button>
+          
+          <div class="user-pill">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="avatar">
+            <div class="user-info">
+              <strong>Anahí Morales</strong>
+              <span>Administración</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic View Container -->
+      <div id="view-container" class="content-body">
+        <!-- Views will be dynamically loaded here by JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Floating Chatbot Widget Button & Drawer -->
+  <div class="chatbot-floating-widget" id="chatbot-widget">
+    <button class="chatbot-trigger" id="chatbot-trigger" title="Abrir Asistente AnahiBot">
+      <i class="fa-solid fa-robot"></i>
+      <span class="chatbot-notification-dot"></span>
+    </button>
+
+    <div class="chatbot-window" id="chatbot-window">
+      <div class="chatbot-header">
+        <div class="bot-profile">
+          <div class="bot-avatar">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <h3>AnahiBot</h3>
+            <span>Asistente Inteligente en línea</span>
+          </div>
+        </div>
+        <button class="btn-icon" id="chatbot-close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chat-message bot">
+          <div class="message-content">
+            ¡Hola! 👋 Soy <strong>AnahiBot</strong>, tu asistente de inventario y gestión para la Carpintería Anahí.
+            ¿En qué puedo ayudarte hoy? Puedes preguntarme por stock de maderas, estado de pedidos, clientes o compras.
+          </div>
+        </div>
+      </div>
+
+      <div class="chatbot-quick-questions">
+        <button class="chip-btn" data-query="¿Qué productos tienen bajo stock?">⚠️ Bajo Stock</button>
+        <button class="chip-btn" data-query="¿Cuál es el resumen de ventas de hoy?">💰 Ventas Hoy</button>
+        <button class="chip-btn" data-query="¿Qué pedidos están en taller?">🔨 Pedidos Taller</button>
+      </div>
+
+      <form class="chatbot-input-form" id="chatbot-form">
+        <input type="text" id="chatbot-input" placeholder="Pregunta sobre stock, ventas o pedidos..." autocomplete="off">
+        <button type="submit" class="btn btn-primary btn-icon-only"><i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/store.js?v=2.0"></script>
+  <script src="js/sprint1.js?v=2.0"></script>
+  <script src="js/sprint2.js?v=2.0"></script>
+  <script src="js/sprint3.js?v=2.0"></script>
+  <script src="js/app.js?v=2.0"></script>
+</body>
+</html>
