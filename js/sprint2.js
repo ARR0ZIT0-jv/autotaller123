@@ -522,7 +522,22 @@ const Sprint2 = {
           <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuáles son los pedidos en producción en taller?')">🔨 Pedidos en Taller</button>
           <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuál es el resumen de ventas?')">💰 Resumen de Ventas</button>
           <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuál es el balance financiero de caja?')">📊 Balance de Caja</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Quiénes son nuestros proveedores?')">🚚 Proveedores</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuántos clientes tenemos registrados?')">👥 Directorio Clientes</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Qué materiales necesitan reabastecerse con urgencia?')">📦 Reabastecer</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuántas ventas se han facturado en total?')">🧾 Total Facturado</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuánto stock de Cedro tenemos disponible?')">🪵 Stock de Cedro</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuánto stock de MDF tenemos?')">🪵 Stock de MDF</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Hay pedidos de muebles a medida en fabricación?')">🏭 En Producción</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuáles son los ingresos totales registrados?')">💵 Ingresos Totales</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuáles son los egresos o gastos totales?')">💸 Egresos Totales</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Qué muebles a medida están actualmente en fabricación?')">🔧 Muebles a Medida</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuánto cuestan las planchas de madera?')">🪓 Precio Planchas</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Hay algún producto agotado o en estado crítico?')">🚫 Productos Agotados</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Qué puedes hacer? ¿En qué me ayudas?')">🤖 Ayuda del Bot</button>
+          <button class="chip-btn" onclick="Sprint2.sendQuickQuery('¿Cuáles son los compradores o clientes frecuentes?')">⭐ Compradores Frecuentes</button>
         </div>
+
 
         <form onsubmit="Sprint2.handleFullChatSubmit(event)" style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
           <input type="text" id="view-chatbot-input" class="form-control" placeholder="Pregunta a AnahiBot sobre inventario, ventas, clientes o pedidos..." required autocomplete="off">
